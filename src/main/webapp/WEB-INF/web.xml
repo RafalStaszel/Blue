@@ -28,7 +28,8 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            /WEB-INF/blue-servlet.xml
+            /WEB-INF/blue-servlet.xml,
+            classpath:blue-core.xml
         </param-value>
     </context-param>
 

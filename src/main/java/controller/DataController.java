@@ -18,7 +18,6 @@ import java.util.List;
 @Controller
 public class DataController {
 
-    private RecordRepository recordReopsitory;
     @Autowired
     private RecordService recordService;
 
@@ -39,10 +38,10 @@ public class DataController {
     public ModelAndView insert() {
         System.out.println("Tutaj ladujemy do bazy");
         ModelAndView model = new ModelAndView("dataTest");
-        Record record = new Record(1, "5/2010", "Android", "02/2016",
-                "23/2042", 300, "month", false);
+        Record record = new Record( "6/2044", "Ios", "00/20",
+                "30/05", 31500, "month", false);
         System.out.println(record.toString());
-        recordReopsitory.save(record);
+        recordService.save(record);
         model.addObject("record", record);
         return model;
     }

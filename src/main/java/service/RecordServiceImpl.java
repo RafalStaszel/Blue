@@ -22,10 +22,14 @@ public class RecordServiceImpl implements RecordService {
     }
 
     @Override
-    public Record getRecordById(int id) {
+    public Record findOne(int id) {
         return recordRepository.findOne(id);
     }
 
+    @Override
+    public void save(Record record) {
+
+    }
 
 
 }

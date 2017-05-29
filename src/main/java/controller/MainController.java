@@ -13,7 +13,7 @@ public class MainController {
 @RequestMapping("/")
 public String home() {
 
-
-    return "datatable";
+return "redirect:/index.html";
+   // return "datatable";
 }
 }

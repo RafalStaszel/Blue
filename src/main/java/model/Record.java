@@ -1,5 +1,7 @@
 package model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 
 /**
@@ -16,6 +18,7 @@ public class Record {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nrTrade;
+    @NotEmpty
     private String system;
     private String fromTime;
     private String toTime;

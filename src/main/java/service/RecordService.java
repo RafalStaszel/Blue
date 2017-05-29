@@ -10,5 +10,6 @@ import java.util.List;
 public interface RecordService {
 
     public List<Record> getAllRecords();
-    public Record getRecordById(int id);
+    public Record findOne(int id);
+    public void save(Record record);
 }

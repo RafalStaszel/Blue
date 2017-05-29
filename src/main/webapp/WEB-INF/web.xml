@@ -18,7 +18,8 @@
 
     <servlet-mapping>
         <servlet-name>blue</servlet-name>
-        <url-pattern>*.html</url-pattern>
+        <!--<url-pattern>*.html</url-pattern>-->
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <listener>
@@ -28,7 +29,8 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            /WEB-INF/blue-servlet.xml
+            /WEB-INF/blue-servlet.xml,
+            classpath:blue-core.xml
         </param-value>
     </context-param>
 

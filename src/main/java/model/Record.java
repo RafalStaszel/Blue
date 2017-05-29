@@ -1,12 +1,19 @@
 package model;
 
+import javax.persistence.*;
+
 /**
  * Created by Rafał on 2017-05-27.
  */
+@Entity
+@Table(name = "BlueTest")
 public class Record {
 
 
+
     // temporary variables
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nrTrade;
     private String system;
@@ -26,6 +33,20 @@ public class Record {
         this.income = income;
         this.scale = scale;
         this.active = active;
+    }
+
+    public Record( String nrTrade, String system, String fromTime, String toTime, int income, String scale, boolean active) {
+        this.nrTrade = nrTrade;
+        this.system = system;
+        this.fromTime = fromTime;
+        this.toTime = toTime;
+        this.income = income;
+        this.scale = scale;
+        this.active = active;
+    }
+
+
+    public Record() {
     }
 
     public int getId() {

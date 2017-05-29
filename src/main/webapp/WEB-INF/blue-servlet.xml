@@ -18,10 +18,11 @@
     <context:property-placeholder location="classpath:system.properties"/>
 
     <context:component-scan base-package="controller"/>
-
+    <context:component-scan base-package="repository"/>
+    <context:component-scan base-package="service"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property-->
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
         <property name="prefix" value="/WEB-INF/jsp/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
@@ -30,5 +31,6 @@
           class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages"/>
     </bean>
-
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:annotation-driven />
 </beans>

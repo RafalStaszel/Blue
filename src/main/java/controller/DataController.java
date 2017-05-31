@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import repository.RecordRepository;
-import service.RecordService;
 
 
 import java.util.List;
@@ -19,7 +18,7 @@ import java.util.List;
 public class DataController {
 
     @Autowired
-    private RecordService recordService;
+    private RecordRepository recordRepository;
 
     //    @RequestMapping("/data")
     //    public ModelAndView showTable() {
@@ -38,10 +37,10 @@ public class DataController {
     public ModelAndView insert() {
         System.out.println("Tutaj ladujemy do bazy");
         ModelAndView model = new ModelAndView("dataTest");
-        Record record = new Record( "6/2044", "Ios", "00/20",
-                "30/05", 31500, "month", false);
+        Record record = new Record( "6/2044", "Windows", "15/50",
+                "30/05", 31500, "zInsert", false);
         System.out.println(record.toString());
-        recordService.save(record);
+        recordRepository.save(record);
         model.addObject("record", record);
         return model;
     }
@@ -50,7 +49,7 @@ public class DataController {
     public ModelAndView showAll() {
         System.out.println("Wszystko z bazy");
         ModelAndView model = new ModelAndView("listTest");
-        List<Record> recordList = recordService.getAllRecords();
+        Iterable<Record> recordList = recordRepository.findAll();
         for (Record record : recordList)
             System.out.println(record.getSystem());
         model.addObject("recordList", recordList);

@@ -13,7 +13,6 @@ public class Record {
 
 
 
-    // temporary variables
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -26,6 +25,9 @@ public class Record {
     private String scale;
     private boolean active;
 
+    public Record(int id) {
+        this.id = id;
+    }
 
     public Record(int id, String nrTrade, String system, String fromTime, String toTime, int income, String scale, boolean active) {
         this.id = id;
@@ -116,17 +118,5 @@ public class Record {
         this.active = active;
     }
 
-    @Override
-    public String toString() {
-        return "Umowa{" +
-                "id=" + id +
-                ", nrTrade='" + nrTrade + '\'' +
-                ", system='" + system + '\'' +
-                ", fromTime='" + fromTime + '\'' +
-                ", toTime='" + toTime + '\'' +
-                ", income=" + income +
-                ", scale='" + scale + '\'' +
-                ", active=" + active +
-                '}';
-    }
+
 }

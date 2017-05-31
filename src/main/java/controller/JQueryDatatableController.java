@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import service.RecordService;
+import repository.ProductRepository;
+import repository.RecordRepository;
 
 
 @Controller
@@ -15,14 +16,24 @@ public class JQueryDatatableController {
 
 
     @Autowired
-    private RecordService recordService;
+    private RecordRepository recordRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
 
-    @RequestMapping("/datatable")
-    public ModelAndView tabliOstaniaT() throws IOException {
-        ModelAndView model = new ModelAndView("dataTable");
+    @RequestMapping("/recordtable")
+    public ModelAndView jTableRecord() throws IOException {
+        ModelAndView model = new ModelAndView("dataTableRecord");
         ObjectMapper mapper = new ObjectMapper();
-        model.addObject("recordList", mapper.writeValueAsString(recordService.getAllRecords()));
+        model.addObject("recordList", mapper.writeValueAsString(recordRepository.findAll()));
+        return model;
+    }
+
+    @RequestMapping("/producttable")
+    public ModelAndView jTableProduct() throws IOException {
+        ModelAndView model = new ModelAndView("dataTableProduct");
+        ObjectMapper mapper = new ObjectMapper();
+        model.addObject("productList", mapper.writeValueAsString(productRepository.findAll()));
         return model;
     }
 }

@@ -6,7 +6,7 @@
          version="3.0">
     <session-config>
         <session-timeout>
-            30
+            40
         </session-timeout>
     </session-config>
 
@@ -18,8 +18,7 @@
 
     <servlet-mapping>
         <servlet-name>blue</servlet-name>
-        <!--<url-pattern>*.html</url-pattern>-->
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
     <listener>
@@ -34,18 +33,15 @@
         </param-value>
     </context-param>
 
-    <!--error-page>
+    <error-page>
         <exception-type>java.lang.Throwable</exception-type>
-        <location>/error.htm</location>
+        <location>/error.html</location>
     </error-page>
-    
+
     <error-page>
         <error-code>404</error-code>
-        <location>/404.htm</location>
-    </error-page-->
+        <location>/404.html</location>
+    </error-page>
 
-    <!--trzeba zdecydowac ktora strona ma byc na start-->
-    <!--<welcome-file-list>-->
-        <!--<welcome-file>dataTable.html</welcome-file>-->
-    <!--</welcome-file-list>-->
+
 </web-app>

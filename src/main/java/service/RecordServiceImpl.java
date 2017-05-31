@@ -7,9 +7,7 @@ import repository.RecordRepository;
 
 import java.util.List;
 
-/**
- * Created by Rafał on 2017-05-29.
- */
+
 @Service("recordService")
 public class RecordServiceImpl implements RecordService {
 
@@ -17,7 +15,7 @@ public class RecordServiceImpl implements RecordService {
     private RecordRepository recordRepository;
 
     @Override
-    public List<Record> getAllRecords() {
+    public Iterable<Record> findAll() {
         return recordRepository.findAll();
     }
 
@@ -28,6 +26,11 @@ public class RecordServiceImpl implements RecordService {
 
     @Override
     public void save(Record record) {
+
+    }
+
+    @Override
+    public void delate(int id) {
 
     }
 

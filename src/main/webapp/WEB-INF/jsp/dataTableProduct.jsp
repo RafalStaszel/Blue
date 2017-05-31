@@ -3,5 +3,5 @@
 <%@ page session="false" %>
 <html>
 <jsp:include page="includes/header.jsp"/>
-<jsp:include page="includes/body.jsp"/>
+<jsp:include page="includes/bodyTableProduct.jsp"/>
 <jsp:include page="includes/footer.jsp"/>

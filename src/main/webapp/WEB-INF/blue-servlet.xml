@@ -13,7 +13,6 @@
 ">
 
     <mvc:annotation-driven/>
-    <!--tx:annotation-driven transaction-manager="core.txManager" /-->
 
     <context:property-placeholder location="classpath:system.properties"/>
 
@@ -33,4 +32,5 @@
     </bean>
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:annotation-driven />
+
 </beans>

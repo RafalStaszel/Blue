@@ -10,7 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 import repository.ProductRepository;
 import repository.RecordRepository;
 
-
+/**
+ * Holder for controller main jquery table.
+ *
+ * @author Rafal Staszel
+ */
 @Controller
 public class JQueryDatatableController {
 
@@ -20,7 +24,13 @@ public class JQueryDatatableController {
     @Autowired
     private ProductRepository productRepository;
 
-
+    /**
+     * Controller table of entity record,
+     * ObjectMapper change data from DB to string.
+     *
+     * @return jQuery table to view "dataTableRecord".
+     * @throws IOException error will only occur when the database is badly configured
+     */
     @RequestMapping("/recordTable")
     public ModelAndView jTableRecord() throws IOException {
         ModelAndView model = new ModelAndView("dataTableRecord");
@@ -29,6 +39,13 @@ public class JQueryDatatableController {
         return model;
     }
 
+    /**
+     * Controller table of entity product
+     * ObjectMapper change data from DB to string.
+     *
+     * @return jQuery table to view "dataTableProduct"
+     * @throws IOException error will only occur when the database is badly configured
+     */
     @RequestMapping("/productTable")
     public ModelAndView jTableProduct() throws IOException {
         ModelAndView model = new ModelAndView("dataTableProduct");

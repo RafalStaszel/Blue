@@ -23,10 +23,7 @@
     <section class="main home">
         <article>
             <h1>Blue Data Info</h1>
-
-
         </article>
-
 
     </section>
     <footer>Prosty serwis do prezentowania aktualnych umów</footer>

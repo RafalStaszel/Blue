@@ -4,23 +4,17 @@
     <groupId>com.javajunior.rafal</groupId>
     <artifactId>Blue</artifactId>
     <packaging>war</packaging>
-    <version>0.5.1-BETA</version>
+    <version>0.6.7-BETA</version>
     <name>Blue Maven Webapp</name>
     <url>https://github.com/RafalStaszel</url>
 
     <properties>
         <spring.version>4.3.8.RELEASE</spring.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tomcat7Version>7.0.78</tomcat7Version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <artifactId>spring-beans</artifactId>
             <groupId>org.springframework</groupId>
@@ -62,6 +56,11 @@
             <type>jar</type>
         </dependency>
         <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>8.5.15</version>
+        </dependency>
+        <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
@@ -75,6 +74,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
@@ -107,7 +112,7 @@
             <artifactId>postgresql</artifactId>
             <version>42.1.1</version>
         </dependency>
-        <!-- HTML helper -->
+        <!-- HTML helper, consider removing them -->
         <dependency>
             <groupId>net.sourceforge.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
@@ -118,6 +123,7 @@
             <artifactId>thymeleaf-spring4</artifactId>
             <version>3.0.6.RELEASE</version>
         </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -135,13 +141,25 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-
         <finalName>Blue</finalName>
     </build>
-        </project>
+</project>

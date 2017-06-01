@@ -4,6 +4,12 @@ import model.Product;
 import org.springframework.data.repository.CrudRepository;
 
 
-//@Repository
+/**
+ * Interface to communicate with DataBase
+ * for model.product.
+ *
+ * @author Rafal Staszel
+ */
+//need implement service layer
 public interface ProductRepository extends CrudRepository<Product, Integer> {
 }

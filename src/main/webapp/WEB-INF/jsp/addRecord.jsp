@@ -16,9 +16,9 @@
 <div id="wrapper">
     <header><img id="imgHeader" src="${pageContext.request.contextPath}/resources/images/logo.jpg" alt="Data Blue Intel"/></header>
 
-    <nav><a class="menu" href="/recordTable.html">Tabela umowy</a><a class="menu" href="/productTable.html">Produkty i
-        klienci</a><a class="menu" href="/edit.html">Edycja</a><a class="menu active" href="/addRecord.html">Dodaj umowę</a><a
-            class="menu" href="/addProduct.html">Dodaj produkt</a><a class="menu" href="/credits.html">O programie</a>
+    <nav><a class="menu" href="recordTable.html">Tabela umowy</a><a class="menu" href="productTable.html">Produkty i
+        klienci</a><a class="menu" href="edit.html">Edycja</a><a class="menu active" href="addRecord.html">Dodaj umowę</a><a
+            class="menu" href="addProduct.html">Dodaj produkt</a><a class="menu" href="credits.html">O programie</a>
     </nav>
 <br>
 <form:form commandName="record" action="/saveRecord.html" method="post">
@@ -36,9 +36,9 @@
     <p>Cykl rozliczenia</p>
     <form:select path="scale">
         <option value="">--</option>
-        <form:option value="rok" label="rok"/>
-        <form:option value="kwartal"   label="kwartał"/>
-        <form:option value="miesiac"   label="miesiac"/>
+        <form:option value="year" label="year"/>
+        <form:option value="quarter"   label="quarter"/>
+        <form:option value="month"   label="month"/>
 
     </form:select>
     <br>

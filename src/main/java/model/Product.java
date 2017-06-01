@@ -1,19 +1,26 @@
 package model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 
-
-
+/**
+ * Entity for model.product.
+ * The product must have a name.
+ * Description and customer is not necessary for product existence
+ *
+ * @author Rafal Staszel
+ */
 @Entity
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int nr;
+    @NotEmpty
     private String system;
     private String sytemDiscription;
     private String systemOwner;
-
 
 
     public Product(int nr, String system, String sytemDiscription, String systemOwner) {

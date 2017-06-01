@@ -5,12 +5,16 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 
 /**
- * Created by Rafał on 2017-05-27.
+ * Entity for model.record
+ * The product must have a name.
+ * The rest of the data is not necessary for the existence of the agreement
+ * and can be edited later.
+ * By default, the contract is not active on the database side
+ *
+ * @author Rafal Staszel
  */
 @Entity
-@Table(name = "BlueTest")
 public class Record {
-
 
 
     @Id
@@ -40,7 +44,7 @@ public class Record {
         this.active = active;
     }
 
-    public Record( String nrTrade, String system, String fromTime, String toTime, int income, String scale, boolean active) {
+    public Record(String nrTrade, String system, String fromTime, String toTime, int income, String scale, boolean active) {
         this.nrTrade = nrTrade;
         this.system = system;
         this.fromTime = fromTime;
@@ -117,6 +121,4 @@ public class Record {
     public void setActive(boolean active) {
         this.active = active;
     }
-
-
 }

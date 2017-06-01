@@ -16,9 +16,9 @@
 <div id="wrapper">
     <header><img id="imgHeader" src="${pageContext.request.contextPath}/resources/images/logo.jpg" alt="Data Blue Intel"/></header>
 
-    <nav><a class="menu" href="/recordTable.html">Tabela umowy</a><a class="menu" href="/productTable.html">Produkty i
-        klienci</a><a class="menu" href="/edit.html">Edycja</a><a class="menu" href="/addRecord.html">Dodaj umowę</a><a
-            class="menu active" href="/addProduct.html">Dodaj produkt</a><a class="menu" href="/credits.html">O programie</a>
+    <nav><a class="menu" href="recordTable.html">Tabela umowy</a><a class="menu" href="productTable.html">Produkty i
+        klienci</a><a class="menu" href="edit.html">Edycja</a><a class="menu" href="addRecord.html">Dodaj umowę</a><a
+            class="menu active" href="addProduct.html">Dodaj produkt</a><a class="menu" href="credits.html">O programie</a>
     </nav>
 <br>
 <form:form commandName="product" action="/saveProduct.html" method="post">

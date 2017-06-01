@@ -9,7 +9,6 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private int nr;
     private String system;
     private String sytemDiscription;

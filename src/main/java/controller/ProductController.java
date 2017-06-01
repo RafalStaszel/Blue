@@ -4,6 +4,7 @@ import model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,76 +15,47 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("/product")
+@RequestMapping
 public class ProductController {
 
 
     @Autowired
     private ProductRepository productRepository;
 
-    @RequestMapping("/add")
+    @RequestMapping("/addProduct")
     public ModelAndView add() {
         ModelAndView model = new ModelAndView("addProduct");
         model.addObject("product", new Product());
         return model;
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveProduct", method = RequestMethod.POST)
     public String saveProduct(@Valid Product product, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors())
-            return "add";
+            return "addProduct";
 
         productRepository.save(product);
-        return "redirect:/index.jsp";
+        return "redirect:/productTable.html";
     }
 
-    @RequestMapping(value = "/postEdit", method = RequestMethod.POST)
-    public String postEdit(@Valid Product product, BindingResult binding) {
+    @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
+    public ModelAndView editRecord(@ModelAttribute("newProduct") Product selectedProduct) {
 
-        if (binding.hasErrors())
-            return "redirect:/editProduct.html";
+        ModelAndView model = new ModelAndView("addProduct");
+        Product prodTemp = productRepository.findOne(selectedProduct.getNr());
+        model.addObject("product", prodTemp);
 
-        productRepository.save(product);
-        return "redirect:/producttable.html";
+        return model;
     }
 
-    @RequestMapping("/delate")
+    @RequestMapping("/delateProduct")
     public String remove(@RequestParam int nr) {
 
         Product product = productRepository.findOne(nr);
         productRepository.delete(nr);
 
-        return "redirect:/producttable.html";
+        return "redirect:/productTable.html";
     }
-
-
-    ////////////////
-
-//    @RequestMapping("/edit")
-//    public ModelAndView edit(@RequestParam int nr) {
-//        ModelAndView model = new ModelAndView("addProduct");
-//        Product product = productRepository.findOne(nr);
-//        model.addObject(product);
-//        return model;
-//    }
-//    @RequestMapping(value = "/remove" , method = RequestMethod.POST)
-//    public String remove(@RequestParam int nr) {
-//        ModelAndView model = new ModelAndView("edit");
-//        System.out.println("Kasujemy " + productRepository.findOne(nr).getSystem());
-//        productRepository.delete(nr);
-//        //model.addObject(product);
-//        return "redirect:/recordtable.html";
-//    }
-//    @RequestMapping(value = "add", method = RequestMethod.POST)
-//    public String updateRecord(@Valid Product product, BindingResult binding) {
-//
-//        if(binding.hasErrors())
-//            return "addRecord";
-//
-//        System.out.println("Update = " +product);
-//        productRepository.save(product);
-//        return "redirect:/recordtable.html";
-//    }
 
 }

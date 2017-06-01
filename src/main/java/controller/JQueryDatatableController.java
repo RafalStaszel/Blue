@@ -21,7 +21,7 @@ public class JQueryDatatableController {
     private ProductRepository productRepository;
 
 
-    @RequestMapping("/recordtable")
+    @RequestMapping("/recordTable")
     public ModelAndView jTableRecord() throws IOException {
         ModelAndView model = new ModelAndView("dataTableRecord");
         ObjectMapper mapper = new ObjectMapper();
@@ -29,7 +29,7 @@ public class JQueryDatatableController {
         return model;
     }
 
-    @RequestMapping("/producttable")
+    @RequestMapping("/productTable")
     public ModelAndView jTableProduct() throws IOException {
         ModelAndView model = new ModelAndView("dataTableProduct");
         ObjectMapper mapper = new ObjectMapper();

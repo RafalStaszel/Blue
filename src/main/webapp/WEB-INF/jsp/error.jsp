@@ -7,6 +7,7 @@
 <body>
 
 <h2>Niestety wystąpił błąd</h2>
-<p>${message}</p>
+<p>${message}</p
+<footer>Prosty serwis do prezentowania aktualnych umów</footer>
 </body>
 </html>

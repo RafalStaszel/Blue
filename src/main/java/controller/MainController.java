@@ -44,4 +44,9 @@ public class MainController {
         // i need implement logger
         return model;
     }
+    @RequestMapping("/credits")
+    public ModelAndView credits(){
+        ModelAndView model = new ModelAndView("credits");
+        return model;
+    }
 }
